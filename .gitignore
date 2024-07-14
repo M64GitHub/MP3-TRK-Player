@@ -1,0 +1,10 @@
+.pio
+.clang_complete
+.gcc-flags.json
+.ccls
+.ccls-cache/
+pio_run_log.txt
+docs
+lib
+
+
