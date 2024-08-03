@@ -179,7 +179,7 @@ void setup() {
     ;
   SPI.begin();
 
-  Serial.println(" -- M64 MP3/TRK SID PLAYER 0.0 --");
+  Serial.println(" -- M64 MP3/TRK SID PLAYER 2.0 --");
   init_all();
 
   // dimWriteScreen_part(&tft,(uint16_t *) logo2_320x240, 0,
@@ -192,16 +192,16 @@ void setup() {
 }
 
 void loop(void) {
-  if (Serial.available()) {
-    wait4UserInput();
-    player_controller.play();
-    while (tick_lock)
-      ;
-    tick_lock = 1;
-    player_controller.display_filelist();
-    tick_lock = 0;
-    delay(250);
-  }
+  // if (Serial.available()) {
+  //   wait4UserInput();
+  //   player_controller.play();
+  //   while (tick_lock)
+  //     ;
+  //   tick_lock = 1;
+  //   player_controller.display_filelist();
+  //   tick_lock = 0;
+  //   delay(250);
+  // }
 
   tick_controller();
 
@@ -248,14 +248,6 @@ void playFile(const char *filename) {
   // Start playing the file.  This sketch continues to
   // run while the file plays.
   playMp31.play(filename);
-
-  // // Simply wait for the file to finish playing.
-  // while (playMp31.isPlaying()) {
-  //   // uncomment these lines if your audio shield
-  //   // has the optional volume pot soldered
-  //   //float vol = analogRead(15);
-  //   //vol = vol / 1024;
-  //   // sgtl5000_1.volume(vol);
 
 #if 0	
 	 Serial.print("Max Usage: ");

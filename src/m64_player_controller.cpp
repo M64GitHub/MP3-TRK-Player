@@ -182,7 +182,7 @@ void m64_player_controller::btn_pressed_next() {
   BTN_STATE = 0;
 
   if (STATE == CONTROLLER_STATE_PLAYING) {
-    mp3_player->stop();
+//    mp3_player->stop();
     STATE = CONTROLLER_STATE_STOPPED;
     btn_pressed_pp();
   }
@@ -230,7 +230,7 @@ void m64_player_controller::btn_pressed_prev() {
   BTN_STATE = 0;
 
   if (STATE == CONTROLLER_STATE_PLAYING) {
-    mp3_player->stop();
+//    mp3_player->stop();
     STATE = CONTROLLER_STATE_STOPPED;
     btn_pressed_pp();
   }
@@ -308,7 +308,7 @@ void m64_player_controller::btn_pressed_pp() {
   }
 
   if (STATE == CONTROLLER_STATE_PLAYING) {
-    mp3_player->pause();
+    // mp3_player->pause();
     STATE = CONTROLLER_STATE_PAUSED;
 
     delay(500);
@@ -316,19 +316,19 @@ void m64_player_controller::btn_pressed_pp() {
 
     if (BTN_STATE & BTN_PLAY_PAUSE) {
       STATE = CONTROLLER_STATE_STOPPED;
-      mp3_player->stop();
+      // mp3_player->stop();
     }
     return;
   }
 
   if (STATE == CONTROLLER_STATE_PAUSED) {
-    mp3_player->pause();
+//     mp3_player->pause();
     STATE = CONTROLLER_STATE_PLAYING;
     delay(200);
     read_btns();
     if (BTN_STATE & BTN_PLAY_PAUSE) {
       STATE = CONTROLLER_STATE_STOPPED;
-      mp3_player->stop();
+      // mp3_player->stop();
     }
     return;
   }
@@ -453,5 +453,21 @@ void m64_player_controller::tick() {
     display_fft_256();
   }
 
-  // update_display();
+  read_btns();
+
+  if( (BTN_STATE & BTN_NEXT) ) {
+    btn_pressed_next();
+  }
+  if( (BTN_STATE & BTN_PREV) ) {
+    btn_pressed_prev();
+  }
+  if( (BTN_STATE & BTN_VOL_UP) ) {
+    btn_pressed_vol_up();
+  }
+  if( (BTN_STATE & BTN_VOL_DWN) ) {
+    btn_pressed_vol_dwn();
+  }
+  if( (BTN_STATE & BTN_PLAY_PAUSE) ) {
+    btn_pressed_pp();
+  }
 }

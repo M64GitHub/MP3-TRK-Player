@@ -13,11 +13,11 @@
 #define FILELIST_DISP_LEN_MAX 33
 #define FILELIST_TOP 33
 
-#define PIN_BTN_PREV 16 // 18
-#define PIN_BTN_NEXT 18 // 16
-#define PIN_BTN_VOL_UP 17
-#define PIN_BTN_VOL_DWN 5
-#define PIN_BTN_PLAY_PAUSE 4
+#define PIN_BTN_PREV 16       // ORNG
+#define PIN_BTN_NEXT 18       // WHITE
+#define PIN_BTN_VOL_UP 17     // BLU
+#define PIN_BTN_VOL_DWN 5     // GN
+#define PIN_BTN_PLAY_PAUSE 4  // BLK
 
 #define BTN_PREV 1
 #define BTN_NEXT 2
