@@ -8,3 +8,5 @@ and easier to build for everyone. V1 was not intended to be a public project.
 
 This is (yet uncleaned) code for the almost bare minimum player with all hardware parts connected
 in a working state. Can play the modern audio formats, no tracker based modules yet.
+
+... stay --> tuned <-- ;]
